@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.alibaba.nacos</groupId>
     <artifactId>logback-adapter</artifactId>
-    <version>1.4.6</version>
+    <version>1.4.6.jakarta</version>
     <name>logback-adapter</name>
     <description>logback-adapter</description>
 
@@ -36,15 +36,15 @@
     </organization>
 
     <properties>
-        <java.version>11</java.version>
-        <slf4j-api.version>2.0.7</slf4j-api.version>
-        <logback.version>1.4.7</logback.version>
-        <nacos.version>[1.4.6,2.2.1)</nacos.version>
+        <java.version>17</java.version>
+        <slf4j-api.version>2.0.9</slf4j-api.version>
+        <logback.version>1.4.11</logback.version>
+        <nacos.version>[1.4.6,1.9.9)</nacos.version>
 
-        <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
-        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven-javadoc-plugin.version>3.6.2</maven-javadoc-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -54,7 +54,30 @@
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>${nacos.version}</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>

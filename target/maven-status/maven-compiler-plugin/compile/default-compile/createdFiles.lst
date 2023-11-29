@@ -1,0 +1,2 @@
+org/slf4j/impl/StaticLoggerBinder.class
+com/alibaba/nacos/client/logging/logback/LogbackNacosLogging.class
